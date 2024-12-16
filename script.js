@@ -18,20 +18,18 @@ function buscarPelicula() {
 
 function cargarPeliculas(movies) {
 
-    console.log(movies)
-
     let contenedorPeliculas = document.getElementById('results');
 
     contenedorPeliculas.innerHTML = "";
 
-    if (!movies.length === 0) {
-        contenedorPeliculas.innerHTML='<p>No se encontraron resultados para la busqueda.</p>';
+    if (movies.length === 0) {
+        contenedorPeliculas.innerHTML = '<p>No se encontraron resultados para la busqueda.</p>';
         return
-    }else{
+    } else {
         movies.forEach(movie => {
             let movieDiv = document.createElement('div');
-            movieDiv.classList.add('movie')         
-            
+            movieDiv.classList.add('movie')
+
             let titulo = document.createElement('h2');
             titulo.textContent = movie.title
 
@@ -41,7 +39,7 @@ function cargarPeliculas(movies) {
             let descripcion = document.createElement('p');
             descripcion.textContent = `Descripcion: ${movie.overview}`
 
-            let srcPoster = urlImg+movie.poster_path 
+            let srcPoster = urlImg + movie.poster_path
 
             let poster = document.createElement('img')
             poster.src = srcPoster
